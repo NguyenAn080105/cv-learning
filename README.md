@@ -15,7 +15,7 @@ The system is designed to handle real-world traffic scenarios, filtering vehicle
 
 ### 1. Object Detection (Snapshot)
 Here is an example of the model detecting vehicles with bounding boxes and class labels.
-![Detection Sample](assets/image01.jpg)
+![Detection Sample](assets/image_detection.jpg)
 
 ### 2. Tracking & Counting (Video Demos)
 The system tracks IDs and updates the counter when vehicles enter the polygon zone. It is tested to work robustly in different lighting conditions (day & night).
@@ -56,3 +56,34 @@ YOLOv8-Vehicle-Counting/
 ├── requirements.txt         # Dependencies (ultralytics, opencv, etc.)
 └── README.md                # Project documentation
 
+## ⚙️ How It Works (Logic from Notebook)
+
+1. Input: Reads video frame by frame.
+2. Detection: YOLOv8 predicts bounding boxes for vehicles.
+3. Tracking: ByteTrack assigns unique IDs to detected objects.
+4. Counting Logic:
+- A Polygon ROI (Region of Interest) is drawn on the frame.
+- The system checks if the center point (anchor) of a vehicle's box is inside the Polygon.
+- If inside + New ID $\rightarrow$ Increment Counter (vehicle_counts).
+5. Output: Draws bounding boxes, IDs, ROI, and Real-time FPS on the video.
+
+## 🚀 Installation & Usage
+
+### 1. Setup Environment
+```bash
+git clone [https://github.com/NguyenAn080105/yolov8-vehicle-counting.git](https://github.com/NguyenAn080105/Yyolov8-vehicle-counting.git)
+cd YOLOv8-Vehicle-Counting
+pip install -r requirements.txt
+```
+
+### 2. Run Inference (Counting)
+Execute the main script. Make sure your video and model paths are correct in main.py.
+```bash
+python main.py
+```
+Note: The script currently defaults to source=assets/vehicle_vid_13.mp4 and uses assets/my_tracker.yaml.
+
+## 👤 Author <br>
+Name: Hoang An Nguyen <br>
+GitHub: NguyenAn080105 <br>
+Email: nguyenan080105@gmail.com
