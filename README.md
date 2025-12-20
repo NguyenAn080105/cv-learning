@@ -1,37 +1,49 @@
-# 🚗 Vehicle Counting & Classification System using YOLOv8
+# 🚗 YOLOv8 Vehicle Counting & Tracking System
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![YOLOv8](https://img.shields.io/badge/YOLO-v8-green)
 ![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-red)
-![Status](https://img.shields.io/badge/Status-Development-yellow)
+![Tracker](https://img.shields.io/badge/Tracker-ByteTrack-orange)
 
 ## 📖 Introduction
 
-This project is a computer vision system designed to detect, track, and count vehicles in a specific Region of Interest (ROI). Using a fine-tuned **YOLOv8** model, the system can classify vehicles into 4 categories: **Bus, Car, Motor, and Truck**.
+This project is a computer vision application developed to detect, track, and count vehicles in a specified Region of Interest (ROI). It combines a fine-tuned **YOLOv8** model for detection and **ByteTrack** algorithm for robust object tracking.
 
-As a 3rd-year student project, my goal was not just to train a model, but to build a complete **Data Processing Pipeline**—handling everything from raw messy datasets to a working inference script.
+The system is designed to handle real-world traffic scenarios, filtering vehicles by class (Bus, Car, Motor, Truck) and counting them only when they pass through a predefined Polygon Zone.
+
+## 📸 Demo & Visualization
+
+### 1. Object Detection (Snapshot)
+Here is an example of the model detecting vehicles with bounding boxes and class labels.
+![Detection Sample](assets/detection_demo.jpg)
+
+### 2. Tracking & Counting (Video Demo)
+The system tracks IDs and updates the counter when vehicles enter the polygon zone (Blue Area).
+![Tracking Demo](assets/tracking_demo.gif)
+
+*Full video demo: [Link to YouTube or Drive Video]*
 
 ## ✨ Key Features
 
-* **Custom Object Detection:** Fine-tuned YOLOv8s model on a mixed dataset to detect 4 classes: `bus`, `car`, `motor`, `truck`.
-* **Object Tracking:** Implemented **BoT-SORT/ByteTrack** to stably track vehicles across frames.
-* **Polygon Zone Counting:** precise counting logic using a Polygon ROI to avoid double-counting or counting parked vehicles.
-* **Data Pipeline:** A set of automated scripts to clean, merge, and validate datasets before training.
-* **Automated Reporting:** Generates an output video `.mp4` and a text report `.txt` automatically after execution.
+* **Custom Object Detection:** Fine-tuned YOLOv8 model specifically for 4 classes: `bus`, `car`, `motor`, `truck`.
+* **Robust Tracking:** Implements **ByteTrack** (via `my_tracker.yaml`) to maintain consistent Object IDs across frames, handling occlusion better than standard methods.
+* **Polygon Zone Counting:** Uses `cv2.pointPolygonTest` to strictly count vehicles only inside the defined ROI, avoiding false counts at the edges.
+* **Data Pipeline:** Includes scripts for merging datasets (`merge_dataset.py`) and standardizing labels (`modify_class.py`) before training.
+* **Automated Reporting:** Outputs a processed video `.mp4` and a text summary `report.txt` containing final counts and execution time.
 
 ## 🛠️ Project Structure
-
-This repo is organized to simulate a standard production environment:
 
 ```text
 YOLOv8-Vehicle-Counting/
 │
-├── assets/                  # Demo videos, ROI images, and results
-├── configs/                 # Configuration files (tracker.yaml, data.yaml)
+├── assets/                  # Demo media (images/videos) and tracker config
+│   ├── my_tracker.yaml      # ByteTrack configuration file
+│   └── traffic4.pt          # Trained YOLOv8 model weights
+├── configs/                 # Dataset config (data.yaml)
 ├── src/                     # Source code
-│   ├── data_preprocessing/  # Scripts for cleaning and preparing data
+│   ├── data_preprocessing/  # Scripts for dataset preparation
 │   ├── train.py             # Training script
-│   └── utils.py             # Helper functions
-├── main.py                  # Main inference script
-├── requirements.txt         # Python dependencies
+│   └── utils.py             # Helper functions (frame extraction, etc.)
+├── main.py                  # Main inference & counting script
+├── requirements.txt         # Dependencies (ultralytics, opencv, etc.)
 └── README.md                # Project documentation
