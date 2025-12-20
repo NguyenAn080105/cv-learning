@@ -65,7 +65,7 @@ YOLOv8-Vehicle-Counting/
 4. Counting Logic:
 - A Polygon ROI (Region of Interest) is drawn on the frame.
 - The system checks if the center point (anchor) of a vehicle's box is inside the Polygon.
-- If inside + New ID $\rightarrow$ Increment Counter (vehicle_counts).
+- If inside + New ID -> Increment Counter (vehicle_counts).
 5. Output: Draws bounding boxes, IDs, ROI, and Real-time FPS on the video.
 
 ## 🚀 Installation & Usage
