@@ -15,13 +15,21 @@ The system is designed to handle real-world traffic scenarios, filtering vehicle
 
 ### 1. Object Detection (Snapshot)
 Here is an example of the model detecting vehicles with bounding boxes and class labels.
-![Detection Sample](assets/detection_demo.jpg)
+![Detection Sample](assets/image01.jpg)
 
-### 2. Tracking & Counting (Video Demo)
-The system tracks IDs and updates the counter when vehicles enter the polygon zone (Blue Area).
-![Tracking Demo](assets/tracking_demo.gif)
+### 2. Tracking & Counting (Video Demos)
+The system tracks IDs and updates the counter when vehicles enter the polygon zone. It is tested to work robustly in different lighting conditions (day & night).
 
-*Full video demo: [Link to YouTube or Drive Video]*
+![Daytime Tracking](assets/daytime.gif)
+<p align="center">
+  <em>Demonstration of vehicle counting during daytime.</em>
+</p>
+
+<br> ![Nighttime Tracking](assets/nighttime.gif)
+<p align="center">
+  <em>Demonstration of vehicle counting during nighttime/low-light conditions.</em>
+</p>
+
 
 ## ✨ Key Features
 
@@ -47,3 +55,4 @@ YOLOv8-Vehicle-Counting/
 ├── main.py                  # Main inference & counting script
 ├── requirements.txt         # Dependencies (ultralytics, opencv, etc.)
 └── README.md                # Project documentation
+
