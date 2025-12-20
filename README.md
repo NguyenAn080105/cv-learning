@@ -14,8 +14,12 @@ The system is designed to handle real-world traffic scenarios, filtering vehicle
 ## 📸 Demo & Visualization
 
 ### 1. Object Detection (Snapshot)
-Here is an example of the model detecting vehicles with bounding boxes and class labels.
+
+
 ![Detection Sample](assets/image01.jpg)
+<p align="center">
+  <em>Here is an example of the model detecting vehicles with bounding boxes and class labels..</em>
+</p>
 
 ### 2. Tracking & Counting (Video Demos)
 The system tracks IDs and updates the counter when vehicles enter the polygon zone. It is tested to work robustly in different lighting conditions (day & night).
