@@ -15,7 +15,7 @@ The system is designed to handle real-world traffic scenarios, filtering vehicle
 
 ### 1. Object Detection (Snapshot)
 Here is an example of the model detecting vehicles with bounding boxes and class labels.
-![Detection Sample](assets/image_detection.jpg)
+![Detection Sample](assets/image01.jpg)
 
 ### 2. Tracking & Counting (Video Demos)
 The system tracks IDs and updates the counter when vehicles enter the polygon zone. It is tested to work robustly in different lighting conditions (day & night).
@@ -55,6 +55,7 @@ YOLOv8-Vehicle-Counting/
 ├── main.py                  # Main inference & counting script
 ├── requirements.txt         # Dependencies (ultralytics, opencv, etc.)
 └── README.md                # Project documentation
+```
 
 ## ⚙️ How It Works (Logic from Notebook)
 
