@@ -12,9 +12,7 @@ import sys
 # .\ffmpeg -re -stream_loop -1 -i vehicle_vid_12.mp4 -c:v copy -rtsp_transport tcp -f rtsp rtsp://localhost:8554/live_stream
 
 # --- PATH CONFIGURATION ---
-CURRENT_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.dirname(CURRENT_SCRIPT_DIR)
-
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(ROOT_DIR, "models", "best.pt")
 TRACKER_CONFIG = os.path.join(ROOT_DIR, "config", "my_tracker.yaml")
 RTSP_URL = "rtsp://localhost:8554/live_stream"
