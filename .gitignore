@@ -4,11 +4,13 @@ __pycache__/
 .vscode/
 .idea/
 
-*.mp4
-*.avi
-
 !assets/*.gif
 !assets/*.png
+
+*.mp4
+*.avi
+*.mkv
+*.mov
 
 *.pt
 *.pth

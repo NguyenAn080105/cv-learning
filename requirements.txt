@@ -1,3 +1,15 @@
+# --- Core AI ---
 ultralytics
 opencv-python
 numpy
+
+# --- Data Processing & Visualization ---
+pandas
+matplotlib
+seaborn
+pillow
+pyyaml
+tqdm
+
+# --- Tracking Support ---
+lapx>=0.5.5
